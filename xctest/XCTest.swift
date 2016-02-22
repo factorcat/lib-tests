@@ -33,4 +33,4 @@ class AssertBase {
 
 }
 
-var Assert = AssertBase()
+let Assert = AssertBase()
