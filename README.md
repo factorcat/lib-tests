@@ -1,7 +1,7 @@
 ```swift
 
 let TestList = "Array Bundle CoreGraphics Dates Network Point Range String SwiftIfCase Translate View " +
-            "AD CrashReport InApp Updater"
+               "AD CrashReport InApp Updater"
 
 import UIKit
 class ViewController: UIViewController {
