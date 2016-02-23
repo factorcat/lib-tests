@@ -13,7 +13,7 @@ class TestNetwork: WTestCase {
     func xtest_network() {
         
         let net = is_available(.network)
-        Assert.equal(true, net)
+        Assert.True(net)
         
     }
 }

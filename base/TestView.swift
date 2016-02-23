@@ -14,8 +14,9 @@ class TestView: WTestCase {
 //        Assert.equal(1, v.subviews.count)
         var cnt = 0
         v.traverseSubviews({ depth, subview in
+//            Log.info(depth, subview)
             cnt += 1
         })
-        Assert.equal(true, cnt >= 1)
+        Assert.True(cnt >= 1)
     }
 }

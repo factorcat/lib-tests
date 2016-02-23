@@ -10,8 +10,11 @@ import UIKit
 
 class TestPoint: WTestCase {
     func test_equal() {
-        Assert.equal(true, (1,2) == (1,2))
-        Assert.equal(true, (1,2) == (1.0,2.0))
+        Assert.True((1,2) == (1,2))
+        Assert.True((1,2) == (1.0,2.0))
+        
+//        Assert.True((1,2) != (1.1,2))
+//        Assert.True((1,2) != (1.1,2.0))
     }
     
     func test_tuple() {

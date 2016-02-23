@@ -1,5 +1,7 @@
 ```swift
-let TestList = "Base Bundle Dates Network Point String SwiftIfCase Translate View"
+
+let TestList = "Array Bundle CoreGraphics Dates Network Point Range String SwiftIfCase Translate View " +
+            "AD CrashReport InApp Updater"
 
 import UIKit
 class ViewController: UIViewController {
@@ -21,7 +23,7 @@ class ViewController: UIViewController {
 
 ```sh
 Started
-...........................................................
-Finished in 0.00616 seconds.
-9 tests, 59 assertions, 0 failures, 0 errors
+........................................................................................
+Finished in 0.0252 seconds.
+40 tests, 88 assertions, 0 failures, 0 errors
 ```

@@ -13,9 +13,7 @@ import Foundation
 
 class TestString: WTestCase {
     
-    func test_range() {
-        Assert.equal(Range(start: 5,end: 8), 5..<8)
-        
+    func test_subscript() {
         let a: String = "00000123000"
         Assert.equal("123", a[5..<8])
         
@@ -34,12 +32,28 @@ class TestString: WTestCase {
         let a: String = "012345678"
         Assert.equal("345678", a.slice_end(3)) // 3..end
     }
+    
+    func test_chartype() {
+        Assert.equal(" ", Char(.space))
+        Assert.equal("\n", Char(.LF))
+    }
 
     func test_split() {
         let a: String = "1, 2, 3"
         Assert.equal(["1", "2", "3"], a.split(", "))
-        
-        Assert.equal(["1,", "2,", "3"], a.split(by: .space))
+    }
+    
+    func test_split_by() {
+        Assert.equal(["1", "2", "3"], "1 2 3".split(by: .space))
+        Assert.equal(["1", "2", "3"], "1\n2\n3".split(by: .LF))
+    }
+    
+    func test_strip() {
+        Assert.equal("1", " 1 ".strip())
+    }
+    
+    func test_repeat() {
+        Assert.equal("aaa", "a"*3)
     }
     
     func test_data() {
@@ -47,9 +61,13 @@ class TestString: WTestCase {
         Assert.equal("a", "a".data().string())
     }
     
-    func test_int() {
+    func test_parse_int() {
         Assert.equal(123, Int("123"))
         Assert.equal(23, parse(Int.self, " 23"))
+    }
+    
+    func test_unicode() {
+        Assert.equal("가", "\u{ac00}")
     }
     
 }

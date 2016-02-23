@@ -13,8 +13,8 @@ class TestDates: WTestCase {
     func test_a_month_ago() {
         let d = NSDate(type: .a_month_ago)
         let today = NSDate(type: .today)
-        Assert.equal(true, d < NSDate(type: .a_week_ago))
-        Assert.equal(true, d < today)
+        Assert.True(d < NSDate(type: .a_week_ago))
+        Assert.True(d < today)
     }
     
     
