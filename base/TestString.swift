@@ -66,6 +66,12 @@ class TestString: WTestCase {
         Assert.equal(23, parse(Int.self, " 23"))
     }
     
+    func test_parse_float() {
+        Assert.equal(1.2, Float("1.2"))
+        Assert.equal(1.2, parse(Float.self, " 1.2"))
+    }
+
+    
     func test_unicode() {
         Assert.equal("가", "\u{ac00}")
     }
