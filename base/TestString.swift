@@ -25,7 +25,7 @@ class TestString: WTestCase {
         let a: String = "012345678"
         Assert.equal("0", String(a[0]))
         Assert.equal("1", String(a[1]))
-        Assert.equal(48, a[0].value)
+        Assert.equal(Character("0"), a[0])
     }
     
     func test_slice() {
