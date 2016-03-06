@@ -12,6 +12,41 @@ import Foundation
 
 
 class TestString: WTestCase {
+
+    func test_rangeOfString() {
+        var text: String
+        
+        text = "abcdef\nghijklmn\nopqrstu"
+        var selectedRange = NSMakeRange(15, 0)
+        var str = text[0..<selectedRange.location]
+        Assert.equal("abcdef\nghijklmn", str)
+        var cnt = 0
+        if let range = str.rangeOfString("\n", options: .BackwardsSearch) {
+            Assert.equal("ghijklmn", str.substringFromIndex(range.startIndex.advancedBy(1)))
+            cnt += 1
+        }
+        Assert.equal(1, cnt)
+        
+        text = "abcdef\nghijklmn\nopqrstu"
+        selectedRange = NSMakeRange(6, 0)
+        str = text[0..<selectedRange.location]
+        Assert.equal("abcdef", str)
+        cnt = 0
+        if let _ = str.rangeOfString("\n", options: .BackwardsSearch) {
+            cnt += 1
+        }
+        Assert.equal(0, cnt)
+        
+        text = ""
+        selectedRange = NSMakeRange(0, 0)
+        str = text[0..<selectedRange.location]
+        Assert.equal("", str)
+        cnt = 0
+        if let _ = str.rangeOfString("\n", options: .BackwardsSearch) {
+            cnt += 1
+        }
+        Assert.equal(0, cnt)
+    }
     
     func test_subscript() {
         let a: String = "00000123000"
@@ -50,6 +85,7 @@ class TestString: WTestCase {
     
     func test_strip() {
         Assert.equal("1", " 1 ".strip())
+        Assert.equal("1", "\0 1 ".strip(include: .null))
     }
     
     func test_repeat() {
