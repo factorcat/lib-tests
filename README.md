@@ -1,7 +1,9 @@
 ```swift
 
-let TestList = "Array Bundle CoreGraphics Dates Network Object Point Range String SwiftGuard SwiftIfCase Translate View " +
-               "AD CrashReport InApp Updater"
+let TestList = "Array Bundle CoreGraphics Point Dates Network Object Range String SwiftGuard SwiftIfCase Translate View"
+        + " AD CrashReport InApp Updater"
+        + " LetraShape"
+
 
 import UIKit
 class ViewController: UIViewController {
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
 
 ```sh
 Started
-.................................................................................................................
-Finished in 0.0115 seconds.
-49 tests, 113 assertions, 0 failures, 0 errors
+.......................................................................................................................................
+Finished in 0.0142 seconds.
+54 tests, 135 assertions, 0 failures, 0 errors
 ```

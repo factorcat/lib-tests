@@ -10,12 +10,12 @@ import Foundation
 
 class TestArray: WTestCase {
     
-    func test_subscript() {
+    func test_subscript_range() {
         let a: [Int] = [0,0,0,0,0,1,2,3,0,0,0]
         Assert.equal([1,2,3], a[5..<8])
     }
     
-    func test_nth() {
+    func test_subscript_nth() {
         let a: [Int] = [0,1,2,3,4,5,6,7,8]
         Assert.equal(0, a[0])
         Assert.equal(1, a[1])
@@ -54,4 +54,11 @@ class TestArray: WTestCase {
         Assert.equal([[1,2,3]], undiagonal([[1,0,0],[0,2,0],[0,0,3]]))
         Assert.equal([["a","b","c"]], undiagonal([["a","",""],["","b",""],["","","c"]]))
     }
+    
+    func test_reverse_inside() {
+        Assert.equal([[1,2,3]], [[1,2,3]].reverse())
+        Assert.equal([[3,2,1]], reverse_inside([[1,2,3]]))
+        Assert.equal([["c","b","a"]], reverse_inside([["a","b","c"]]))
+    }
+
 }
