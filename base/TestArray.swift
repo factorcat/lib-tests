@@ -38,5 +38,20 @@ class TestArray: WTestCase {
         Assert.equal([0,2,4], a.map{ x in 2*x})
     }
 
-}
+    func test_transpose() {
+        Assert.equal([[1,4],[2,5],[3,6]], transpose([[1,2,3],[4,5,6]]))
+        Assert.equal([[1,2,3],[4,5,6]], transpose([[1,4],[2,5],[3,6]]))
+        Assert.equal([["a"],["b"],["c"]], transpose([["a","b","c"]]))
+        Assert.equal([["a","b","c"]], transpose([["a"],["b"],["c"]]))
+    }
 
+    func test_diagonal() {
+        Assert.equal([[1,0,0],[0,2,0],[0,0,3]], diagonal([[1,2,3]], 0))
+        Assert.equal([["a","",""],["","b",""],["","","c"]], diagonal([["a","b","c"]], ""))
+    }
+    
+    func test_undiagonal() {
+        Assert.equal([[1,2,3]], undiagonal([[1,0,0],[0,2,0],[0,0,3]]))
+        Assert.equal([["a","b","c"]], undiagonal([["a","",""],["","b",""],["","","c"]]))
+    }
+}
