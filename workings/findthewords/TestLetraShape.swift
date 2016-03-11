@@ -9,7 +9,7 @@
 import Foundation
 
 class TestLetraShape: WTestCase {
-
+    
     func test_shape_change() {
         var shape = LetraShape(["apple".chars])
         shape.change(.Sero)
@@ -95,5 +95,4 @@ class TestLetraShape: WTestCase {
         Assert.equal([["f","i","l","i","b","u","s","t","e","r"]], shape.letras)
         Assert.equal(.Garo, shape.state)
     }
-
 }
