@@ -79,18 +79,18 @@ class TestArray: WTestCase {
     }
     
     func test_set_intersection() {
-        Assert.equal([2], [1,2].intersection([2,3]))
+        Assert.equal([2], [1,2].intersect([2,3]))
         Assert.equal([2], [1,2] ∩ [2,3])
         
-        Assert.equal([2,3], [1,2,3].intersection([2,3,5]))
+        Assert.equal([2,3], [1,2,3].intersect([2,3,5]))
         Assert.equal([2,3], [1,2,3] ∩ [2,3,5])
     }
     
     func test_set_difference() {
-        Assert.equal([1], [1,2].difference([2,3]))
+        Assert.equal([1], [1,2].subtract([2,3]))
         Assert.equal([1], [1,2] ∖ [2,3])
         
-        Assert.equal([1,2], [1,2,3].difference([3]))
+        Assert.equal([1,2], [1,2,3].subtract([3]))
         Assert.equal([1,2], [1,2,3] ∖ [3])
     }
     
