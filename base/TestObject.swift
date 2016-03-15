@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+
 
 class Fruit: UIView {
     var name: String
@@ -32,6 +34,26 @@ class Banana: Fruit {
 
 
 class TestObject: WTestCase {
+    var year = 0
+    
+    func test_property() {
+        Assert.equal(["year"], self.propertyNames())
+        Assert.True(self.isProperty("year"))
+    }
+    
+    func test_return_types() {
+        let view = UIView()
+        
+        var cnt = 0
+        if let _ = view.getMethod("aa") {
+            cnt += 1
+        }
+        Assert.equal(0, cnt)
+        
+        Assert.equal("d", return_types(view, "alpha"))
+        Assert.equal("@", return_types(view, "backgroundColor"))
+        Assert.equal("{UIEdgeInsets=dddd}", return_types(view, "alignmentRectInsets"))
+    }
     
     func create(klass: Fruit.Type) -> Fruit {
         if let fruit: Fruit = klass.init() {

@@ -31,7 +31,7 @@ class TestSet: WTestCase {
         Assert.equal(Set([[0,0], [0,1]]), Set([[0,0]]) ∪ Set([[0,1]]))
     }
     
-    func test_set_intersection() {
+    func test_set_intersect() {
         Assert.equal(Set([2]), Set([1,2]).intersect(Set([2,3])))
         Assert.equal(Set([2]), Set([1,2]) ∩ Set([2,3]))
         

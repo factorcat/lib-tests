@@ -29,7 +29,7 @@ class TestArray: WTestCase {
     
     func test_slice() {
         let a: [Int] = [0,1,2,3,4,5,6,7,8]
-        Assert.equal([3,4,5,6,7,8], a.slice_end(3)) // 3..end
+        Assert.equal([3,4,5,6,7,8], a.slice_to_end(3)) // 3..end
     }
     
     func test_map() {
@@ -78,7 +78,7 @@ class TestArray: WTestCase {
         Assert.equal([[0,0], [0,1]], [[0,0]] ∪ [[0,1]])
     }
     
-    func test_set_intersection() {
+    func test_set_intersect() {
         Assert.equal([2], [1,2].intersect([2,3]))
         Assert.equal([2], [1,2] ∩ [2,3])
         
@@ -86,7 +86,7 @@ class TestArray: WTestCase {
         Assert.equal([2,3], [1,2,3] ∩ [2,3,5])
     }
     
-    func test_set_difference() {
+    func test_set_subtract() {
         Assert.equal([1], [1,2].subtract([2,3]))
         Assert.equal([1], [1,2] ∖ [2,3])
         

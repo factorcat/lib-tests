@@ -65,7 +65,7 @@ class TestString: WTestCase {
     
     func test_slice() {
         let a: String = "012345678"
-        Assert.equal("345678", a.slice_end(3)) // 3..end
+        Assert.equal("345678", a.slice_to_end(3)) // 3..end
     }
     
     func test_chartype() {
