@@ -8,14 +8,49 @@
 
 import UIKit
 
-
 class TestColor: WTestCase {
     
     func test_rgb() {
         Assert.equal("#FF0000", UIColor(red: 1, green: 0, blue: 0, alpha: 1).hex())
         Assert.equal("#FF0000", UIColor.rgb255(255,0,0).hex())
+        Assert.equal("#00FFFF", UIColor.cyanColor().hex())
+        Assert.equal("#FF00FF", UIColor.magentaColor().hex())
+        Assert.equal("#FFFF00", UIColor.yellowColor().hex())
+        Assert.equal("#7F7F7F", UIColor.grayColor().hex())
     }
-    
+
+    func test_cmyk() {
+        var (c,m,y,k):(Double, Double, Double, Double)
+
+        
+        (c,m,y,k) = UIColor.whiteColor().cmyk()
+//        Assert.equal([0.0, 0.0, 1.0, 0.0], [c,m,y,k])
+
+        (c,m,y,k) = UIColor.yellowColor().cmyk()
+        Assert.equal([0.0, 0.0, 1.0, 0.0], [c,m,y,k])
+
+
+        (c,m,y,k) = UIColor.blackColor().cmyk()
+//        Assert.equal([1.0, 0.0, 1.0, 0.0], [c,m,y,k])
+
+        (c,m,y,k) = UIColor.greenColor().cmyk()
+        Assert.equal([1.0, 0.0, 1.0, 0.0], [c,m,y,k])
+
+        
+        (c,m,y,k) = UIColor.cyanColor().cmyk()
+        Assert.equal([1.0, 0.0, 0.0, 0.0], [c,m,y,k])
+        
+        (c,m,y,k) = UIColor.magentaColor().cmyk()
+        Assert.equal([0.0, 1.0, 0.0, 0.0], [c,m,y,k])
+
+        (c,m,y,k) = UIColor.blueColor().cmyk()
+        Assert.equal([1.0, 1.0, 0.0, 0.0], [c,m,y,k])
+
+        (c,m,y,k) = UIColor.redColor().cmyk()
+        Assert.equal([0.0, 1.0, 1.0, 0.0], [c,m,y,k])
+
+    }
+
     func test_hsb() {
         var (h,s,b):(CGFloat, CGFloat, CGFloat)
         
@@ -58,31 +93,6 @@ class TestColor: WTestCase {
         (h,s,b) = UIColor.yellowColor().hsb()
         Assert.equal([1/6, 1.0, 1.0], [h,s,b])
         Assert.equal("#FFFF00", UIColor(hue: h, saturation: s, brightness: b, alpha: 1).hex())
-    }
-
-    func test_cmyk() {
-        var (c,m,y,k):(Double, Double, Double, Double)
-        
-        (c,m,y,k) = UIColor.cyanColor().cmyk()
-        Assert.equal([1.0, 0.0, 0.0, 0.0], [c,m,y,k])
-        
-        (c,m,y,k) = UIColor.magentaColor().cmyk()
-        Assert.equal([0.0, 1.0, 0.0, 0.0], [c,m,y,k])
-
-        (c,m,y,k) = UIColor.yellowColor().cmyk()
-        Assert.equal([0.0, 0.0, 1.0, 0.0], [c,m,y,k])
-        
-        (c,m,y,k) = UIColor.blackColor().cmyk()
-        Assert.equal([1.0, 0.0, 1.0, 0.0], [c,m,y,k])
-        
-        (c,m,y,k) = UIColor.redColor().cmyk()
-        Assert.equal([0.0, 1.0, 1.0, 0.0], [c,m,y,k])
-        
-        (c,m,y,k) = UIColor.greenColor().cmyk()
-        Assert.equal([1.0, 0.0, 1.0, 0.0], [c,m,y,k])
-
-        (c,m,y,k) = UIColor.blueColor().cmyk()
-        Assert.equal([1.0, 1.0, 0.0, 0.0], [c,m,y,k])
     }
 }
 
