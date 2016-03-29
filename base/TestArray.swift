@@ -69,37 +69,37 @@ class TestArray: WTestCase {
 
     func test_set_union() {
         Assert.equal([1,2,3], [1,2].union([2,3]))
-        Assert.equal([1,2,3], [1,2] ∪ [2,3])
+//        Assert.equal([1,2,3], [1,2] ∪ [2,3])
         
         Assert.equal([1,2,3], [1,2,3].union([2,3]))
-        Assert.equal([1,2,3], [1,2,3] ∪ [2,3])
+//        Assert.equal([1,2,3], [1,2,3] ∪ [2,3])
         
-        Assert.equal(["a","b","c"], ["a","b","c"] ∪ ["b","c"])
-        Assert.equal([[0,0], [0,1]], [[0,0]] ∪ [[0,1]])
+//        Assert.equal(["a","b","c"], ["a","b","c"] ∪ ["b","c"])
+//        Assert.equal([[0,0], [0,1]], [[0,0]] ∪ [[0,1]])
     }
     
     func test_set_intersect() {
         Assert.equal([2], [1,2].intersect([2,3]))
-        Assert.equal([2], [1,2] ∩ [2,3])
+//        Assert.equal([2], [1,2] ∩ [2,3])
         
         Assert.equal([2,3], [1,2,3].intersect([2,3,5]))
-        Assert.equal([2,3], [1,2,3] ∩ [2,3,5])
+//        Assert.equal([2,3], [1,2,3] ∩ [2,3,5])
     }
     
     func test_set_subtract() {
         Assert.equal([1], [1,2].subtract([2,3]))
-        Assert.equal([1], [1,2] ∖ [2,3])
+//        Assert.equal([1], [1,2] ∖ [2,3])
         
         Assert.equal([1,2], [1,2,3].subtract([3]))
-        Assert.equal([1,2], [1,2,3] ∖ [3])
+//        Assert.equal([1,2], [1,2,3] ∖ [3])
     }
     
     func test_set_complement() {
         Assert.equal([1], [2,3].complement([1,2]))
-        Assert.equal([1], [2,3] ∁ [1,2])
+//        Assert.equal([1], [2,3] ∁ [1,2])
         
         Assert.equal([1,2], [3].complement([1,2,3]))
-        Assert.equal([1,2], [3] ∁ [1,2,3])
+//        Assert.equal([1,2], [3] ∁ [1,2,3])
     }
     
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class TestBundle: WTestCase {
     func test_bundle() {
-        Assert.equal("1.0", Bundle.version)
+        Assert.equal("1.0", String(Bundle.version))
         Assert.equal("1", Bundle.build)
         Assert.equal("com.factor.TestReport", Bundle.identifier)
         Assert.equal("TestReport", Bundle.name)

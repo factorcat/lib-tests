@@ -48,12 +48,20 @@ class TestString: WTestCase {
         Assert.equal(0, cnt)
     }
     
-    func test_subscript() {
+    func test_subscript_range() {
         let a: String = "00000123000"
         Assert.equal("123", a[5..<8])
         
         Assert.equal("00000123", a[0..<8])
         Assert.equal("00000123000", a[0..<15])
+    }
+
+    func test_subscript_NSRange() {
+        let a: String = "00000123000"
+        Assert.equal("123", a[NSMakeRange(5,3)])
+        
+        Assert.equal("00000123", a[NSMakeRange(0,8)])
+        Assert.equal("00000123000", a[NSMakeRange(0,15)])
     }
 
     func test_nth() {
@@ -105,6 +113,8 @@ class TestString: WTestCase {
     func test_parse_float() {
         Assert.equal(1.2, Float("1.2"))
         Assert.equal(1.2, parse(Float.self, " 1.2"))
+        
+        Assert.equal(nil, Float("1.2.1"))
     }
 
     
