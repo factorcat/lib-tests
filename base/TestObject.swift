@@ -49,10 +49,23 @@ class TestObject: WTestCase {
             cnt += 1
         }
         Assert.equal(0, cnt)
-        
-        Assert.equal("d", return_types(view, "alpha"))
         Assert.equal("@", return_types(view, "backgroundColor"))
-        Assert.equal("{UIEdgeInsets=dddd}", return_types(view, "alignmentRectInsets"))
+        Assert.True(["f","d"].contains( return_types(view, "alpha") ))
+        Assert.True(["{CGRect={CGPoint=ff}{CGSize=ff}}","{CGRect={CGPoint=dd}{CGSize=dd}}"].contains( return_types(view, "frame") ))
+        Assert.True(["{UIEdgeInsets=ffff}","{UIEdgeInsets=dddd}"].contains( return_types(view, "alignmentRectInsets") ))
+    }
+
+    func f(a: Int) {
+    }
+
+    func test_argument_types() {
+        Assert.True(["q","l"].contains( argument_types(self, "f:", nth: 2) ))
+    }
+
+    func test_mirror() {
+        let a: [Int] = [0,0,0]
+        let names = Mirror(reflecting: a).children.filter { $0.label != nil }.map { $0.label! }
+        Assert.equal(["[0]", "[1]", "[2]"], names)
     }
     
     func create(klass: Fruit.Type) -> Fruit {

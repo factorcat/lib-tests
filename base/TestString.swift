@@ -116,11 +116,20 @@ class TestString: WTestCase {
         
         Assert.equal(nil, Float("1.2.1"))
     }
-
     
     func test_unicode() {
         Assert.equal("가", "\u{ac00}")
     }
     
-}
+    func test_canonical_mapping() {
+        Assert.equal("\u{2fad}", "\u{2fad}".precomposedStringWithCanonicalMapping)
+        Assert.equal("\u{2fad}", "\u{2fad}".decomposedStringWithCanonicalMapping)
+        Assert.equal("\u{9751}", "\u{2fad}".precomposedStringWithCompatibilityMapping)
+        Assert.equal("\u{9751}", "\u{2fad}".decomposedStringWithCompatibilityMapping)
 
+        Assert.equal("\u{9751}", "\u{9751}".precomposedStringWithCanonicalMapping)
+        Assert.equal("\u{9751}", "\u{9751}".decomposedStringWithCanonicalMapping)
+        Assert.equal("\u{9751}", "\u{9751}".precomposedStringWithCompatibilityMapping)
+        Assert.equal("\u{9751}", "\u{9751}".decomposedStringWithCompatibilityMapping)
+    }
+}

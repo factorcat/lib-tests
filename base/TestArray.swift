@@ -9,7 +9,7 @@
 import Foundation
 
 class TestArray: WTestCase {
-    
+
     func test_subscript_range() {
         let a: [Int] = [0,0,0,0,0,1,2,3,0,0,0]
         Assert.equal([1,2,3], a[5..<8])
