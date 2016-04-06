@@ -15,24 +15,24 @@ class OrganizeSettings: TableSectionItem {
         self.title = ""
         self.rows = []
     }
-    func cellForRowAtIndexPath(vc: UIViewController, _ cell: UITableViewCell?, indexPath: NSIndexPath) {
+    func cellForRowAtIndexPath(vc: UITableViewController, _ cell: UITableViewCell?, indexPath: NSIndexPath) {
     }
-    func didSelectRowAtIndexPath(vc: UIViewController, indexPath: NSIndexPath) {
+    func didSelectRowAtIndexPath(vc: UITableViewController, indexPath: NSIndexPath) {
     }
 }
 
 
 
 class TableSectionViewController: UITableViewController {
-    var ts: TableSections? = TableSections(sections:
+    var ts: TableSections = TableSections(sections:
         [OrganizeSettings(), OrganizeUpgrade(), OrganizeAppInfo()])
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ts!.sections.count
+        return ts.sections.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ts!.sections[section].rows.count
+        return ts.sections[section].rows.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,12 +41,12 @@ class TableSectionViewController: UITableViewController {
         if nil == cell {
             cell = UITableViewCell(style: .Value1, reuseIdentifier: cellIdentifier)
         }
-        ts!.sectionitemof(indexPath).cellForRowAtIndexPath(self, cell, indexPath: indexPath)
+        ts.sectionitemof(indexPath).cellForRowAtIndexPath(self, cell, indexPath: indexPath)
         return cell!
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        ts!.sectionitemof(indexPath).didSelectRowAtIndexPath(self, indexPath: indexPath)
+        ts.sectionitemof(indexPath).didSelectRowAtIndexPath(self, indexPath: indexPath)
     }
 }
 
@@ -56,6 +56,6 @@ class TestTableSections: WTestCase {
     
     func test_tablesections() {
         let vc = TableSectionViewController()
-        Assert.equal(3, vc.ts!.sections.count)
+        Assert.equal(3, vc.ts.sections.count)
     }
 }
