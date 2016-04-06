@@ -23,9 +23,9 @@ class TestTableSections: WTestCase {
         }
     }
     
-    func test_section_rows() {
+    func test_tablesections() {
         let ts = TableSections(sections:
-            [OrganizeSettings(), OrganizeAppInfo(), OrganizeUpgrade()])
+            [OrganizeSettings(), OrganizeUpgrade(), OrganizeAppInfo()])
         Assert.equal(3, ts.sections.count)
     }
 }
