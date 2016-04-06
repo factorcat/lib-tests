@@ -14,7 +14,7 @@ class TestTextLines: WTestCase {
         var values: [String]
     }
     
-    class SplitBySpace: MapperLine {
+    class SplitBySpace: TextLineMapper {
         var item: MapperItem?
         init(_ line: String) {
             self.item = CharStore(values: line.split(by: .space))
@@ -38,7 +38,7 @@ class TestTextLines: WTestCase {
         var meaning: String
     }
     
-    class SplitByTab: MapperLine {
+    class SplitByTab: TextLineMapper {
         var item: MapperItem?
         init(_ line: String) {
             let cols = line.split(by: .tab)
